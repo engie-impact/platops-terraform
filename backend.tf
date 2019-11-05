@@ -1,10 +1,14 @@
-terraform {
-  backend "remote" {
-    hostname = "app.terraform.io"
-    organization = "engie-impact"
+provider "tfe" {
+  token    = "${var.token}"
+}
 
-    workspaces {
-      prefix = "platops-api-github"
-    }
-  }
+
+resource "tfe_organization" "main" {
+  name  = "engie-impact"
+  email = "platops@online.engie.com"
+}
+
+resource "tfe_workspace" "main" {
+  name         = "platops-tf-dev"
+  organization = "engie-impact"
 }
