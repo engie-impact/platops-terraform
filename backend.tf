@@ -4,7 +4,7 @@ terraform {
     organization = "engie-impact"
 
     workspaces {
-      prefix = "platops-sample-api-"
+      prefix = "platops-api-github"
     }
   }
 }
